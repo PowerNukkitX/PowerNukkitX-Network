@@ -10,6 +10,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>raknet</artifactId>
+    <version>1.6.15-PN2</version>
 
     <name>RakNet Protocol</name>
     <description>An Open Source implementation of the RakNet protocol in Java</description>
@@ -18,7 +19,7 @@
         <dependency>
             <groupId>org.powernukkit.bedrock.network</groupId>
             <artifactId>bedrock-network-common</artifactId>
-            <version>${project.version}</version>
+            <version>1.6.15-PN</version>
             <scope>compile</scope>
         </dependency>
         <dependency>
@@ -29,8 +30,8 @@
         </dependency>
         <dependency>
             <groupId>net.sf.trove4j</groupId>
-            <artifactId>trove</artifactId>
-            <version>3.1.0-SNAPSHOT</version>
+            <artifactId>experimental</artifactId>
+            <version>3.1.0</version>
             <scope>compile</scope>
         </dependency>
     </dependencies>
