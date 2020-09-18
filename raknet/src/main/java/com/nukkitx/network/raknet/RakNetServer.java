@@ -58,6 +58,7 @@ public class RakNetServer extends RakNet {
         ChannelFuture[] channelFutures = new ChannelFuture[bindThreads];
 
         for (int i = 0; i < bindThreads; i++) {
+            log.trace("Binding RakNet server UDP handler {} to {}", datagramHandler, bindAddress);
             channelFutures[i] = this.bootstrap.handler(datagramHandler).bind(this.bindAddress);
         }
 
@@ -151,6 +152,8 @@ public class RakNetServer extends RakNet {
                 + UDP_HEADER_SIZE; // 1 (Packet ID), 16 (Magic), 1 (Protocol Version), 20/40 (IP Header)
 
         RakNetServerSession session = this.sessionsByAddress.get(packet.sender());
+        
+        log.trace("RakNet Server open connection request received from {} in context {}. MTU: {}, Protocol: {}", packet.sender(), ctx, mtu, protocolVersion);
 
         if (session != null) {
             this.sendAlreadyConnected(ctx, packet.sender());
@@ -182,6 +185,8 @@ public class RakNetServer extends RakNet {
         if (!RakNetUtils.verifyUnconnectedMagic(packet.content())) {
             return;
         }
+        
+        log.trace("Unconnected ping received from {} at context {}", packet.sender(), ctx.name());
 
         byte[] userData = null;
 
@@ -261,6 +266,7 @@ public class RakNetServer extends RakNet {
             try {
                 if (blockAddresses.containsKey(packet.sender().getAddress())) {
                     // Ignore these addresses altogether.
+                    log.trace("Ignoring packet from ", packet.sender());
                     return;
                 }
 
