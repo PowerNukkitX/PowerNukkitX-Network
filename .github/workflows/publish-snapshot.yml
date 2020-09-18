@@ -26,5 +26,5 @@ jobs:
     - name: Publish snapshot
       run: mvn -B deploy
       env:
-          MAVEN_USERNAME: ${{ secrets.POWERNUKKIT_SNAPSHOT_USER }}
+        MAVEN_USERNAME: ${{ secrets.POWERNUKKIT_SNAPSHOT_USER }}
         MAVEN_PASSWORD: ${{ secrets.POWERNUKKIT_SNAPSHOT_PASSWORD }}
