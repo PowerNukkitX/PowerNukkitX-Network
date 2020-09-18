@@ -3,13 +3,16 @@
          xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>network-parent</artifactId>
-        <groupId>com.nukkitx.network</groupId>
-        <version>1.6.20</version>
+        <artifactId>bedrock-network-parent</artifactId>
+        <groupId>org.powernukkit.bedrock.network</groupId>
+        <version>1.6.20-PN</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>common</artifactId>
+    <artifactId>bedrock-network-common</artifactId>
+    
+    <name>Bedrock Edition Network (Common)</name>
+    <description>Common source across the Bedrock Edition Network implementation</description>
 
     <dependencies>
         <dependency>
@@ -33,4 +36,44 @@
             <classifier>osx-x86_64</classifier>
         </dependency>
     </dependencies>
+
+
+    <issueManagement>
+        <system>GitHub</system>
+        <url>https://github.com/PowerNukkit/Bedrock-Network/issues</url>
+    </issueManagement>
+
+    <scm>
+        <connection>scm:git:https://github.com/PowerNukkit/Bedrock-Network.git</connection>
+        <developerConnection>scm:git:ssh://github.com:PowerNukkit/Bedrock-Network.git</developerConnection>
+        <url>https://github.com/PowerNukkit/Bedrock-Network</url>
+    </scm>
+
+    <distributionManagement>
+        <repository>
+            <id>powernukkit-releases</id>
+            <name>powernukkit-releases</name>
+            <url>https://api.bintray.com/maven/powernukkit/powernukkit/bedrock-network</url>
+        </repository>
+    </distributionManagement>
+
+    <developers>
+        <developer>
+            <id>PowerNukkit</id>
+            <organization>PowerNukkit</organization>
+            <organizationUrl>https://powernukkit.org</organizationUrl>
+        </developer>
+        <developer>
+            <id>CloudburstMC</id>
+            <organization>CloudburstMC</organization>
+            <organizationUrl>https://cloudburstmc.org</organizationUrl>
+        </developer>
+    </developers>
+
+    <licenses>
+        <license>
+            <name>GNU Lesser General Public License, Version 3</name>
+            <url>http://www.gnu.org/licenses/lgpl-3.0.txt</url>
+        </license>
+    </licenses>
 </project>

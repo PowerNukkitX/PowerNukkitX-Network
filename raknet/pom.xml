@@ -3,19 +3,23 @@
          xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>network-parent</artifactId>
-        <groupId>com.nukkitx.network</groupId>
-        <version>1.6.20</version>
+        <artifactId>bedrock-network-parent</artifactId>
+        <groupId>org.powernukkit.bedrock.network</groupId>
+        <version>1.6.20-PN</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>raknet</artifactId>
+    <version>1.6.15-PN2</version>
+
+    <name>RakNet Protocol</name>
+    <description>An Open Source implementation of the RakNet protocol in Java</description>
 
     <dependencies>
         <dependency>
-            <groupId>com.nukkitx.network</groupId>
-            <artifactId>common</artifactId>
-            <version>${project.version}</version>
+            <groupId>org.powernukkit.bedrock.network</groupId>
+            <artifactId>bedrock-network-common</artifactId>
+            <version>1.6.15-PN</version>
             <scope>compile</scope>
         </dependency>
         <dependency>
@@ -25,4 +29,44 @@
             <scope>compile</scope>
         </dependency>
     </dependencies>
+
+
+    <issueManagement>
+        <system>GitHub</system>
+        <url>https://github.com/PowerNukkit/Bedrock-Network/issues</url>
+    </issueManagement>
+
+    <scm>
+        <connection>scm:git:https://github.com/PowerNukkit/Bedrock-Network.git</connection>
+        <developerConnection>scm:git:ssh://github.com:PowerNukkit/Bedrock-Network.git</developerConnection>
+        <url>https://github.com/PowerNukkit/Bedrock-Network</url>
+    </scm>
+
+    <distributionManagement>
+        <repository>
+            <id>powernukkit-releases</id>
+            <name>powernukkit-releases</name>
+            <url>https://api.bintray.com/maven/powernukkit/powernukkit/bedrock-network</url>
+        </repository>
+    </distributionManagement>
+
+    <developers>
+        <developer>
+            <id>PowerNukkit</id>
+            <organization>PowerNukkit</organization>
+            <organizationUrl>https://powernukkit.org</organizationUrl>
+        </developer>
+        <developer>
+            <id>CloudburstMC</id>
+            <organization>CloudburstMC</organization>
+            <organizationUrl>https://cloudburstmc.org</organizationUrl>
+        </developer>
+    </developers>
+
+    <licenses>
+        <license>
+            <name>GNU Lesser General Public License, Version 3</name>
+            <url>http://www.gnu.org/licenses/lgpl-3.0.txt</url>
+        </license>
+    </licenses>
 </project>
