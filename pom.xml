@@ -55,6 +55,11 @@
             <name>powernukkit-releases</name>
             <url>https://api.bintray.com/maven/powernukkit/powernukkit/bedrock-network</url>
         </repository>
+        <snapshotRepository>
+            <id>powernukkit-snapshots</id>
+            <name>powernukkit-snapshots</name>
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+        </snapshotRepository>
     </distributionManagement>
 
     <developers>
