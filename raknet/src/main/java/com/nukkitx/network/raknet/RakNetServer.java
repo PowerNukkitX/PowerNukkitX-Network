@@ -179,10 +179,12 @@ public class RakNetServer extends RakNet {
 
     private void onUnconnectedPing(ChannelHandlerContext ctx, DatagramPacket packet) {
         if (!packet.content().isReadable(24)) {
+            log.trace("Unconnected ping received from {} at context {} but content size was too short", packet.sender(), ctx.name());
             return;
         }
         long pingTime = packet.content().readLong();
         if (!RakNetUtils.verifyUnconnectedMagic(packet.content())) {
+            log.trace("Unconnected ping received from {} at context {} but magic verification failed", packet.sender(), ctx.name());
             return;
         }
         
@@ -257,6 +259,7 @@ public class RakNetServer extends RakNet {
 
         @Override
         public void channelRead(ChannelHandlerContext ctx, Object msg) {
+            log.trace("Message received of type ", msg.getClass());
             if (!(msg instanceof DatagramPacket)) {
                 return;
             }
@@ -272,10 +275,12 @@ public class RakNetServer extends RakNet {
 
                 ByteBuf content = packet.content();
                 if (!content.isReadable()) {
+                    log.trace("Received empty datagram from {} at {}", packet.sender(), ctx.name());
                     // We have no use for empty packets.
                     return;
                 }
                 byte packetId = content.readByte();
+                log.trace("Processing packet id {} from {} at {}", packet, packet.sender(), ctx.name());
 
                 // These packets don't require a session
                 switch (packetId) {
