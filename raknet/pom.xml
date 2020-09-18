@@ -5,12 +5,11 @@
     <parent>
         <artifactId>bedrock-network-parent</artifactId>
         <groupId>org.powernukkit.bedrock.network</groupId>
-        <version>1.6.20-PN</version>
+        <version>1.6.20-PN-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>raknet</artifactId>
-    <version>1.6.15-PN2</version>
 
     <name>RakNet Protocol</name>
     <description>An Open Source implementation of the RakNet protocol in Java</description>
@@ -65,8 +64,9 @@
 
     <licenses>
         <license>
-            <name>GNU Lesser General Public License, Version 3</name>
-            <url>http://www.gnu.org/licenses/lgpl-3.0.txt</url>
+            <name>The Apache Software License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
         </license>
     </licenses>
 </project>
