@@ -18,7 +18,7 @@
         <dependency>
             <groupId>org.powernukkit.bedrock.network</groupId>
             <artifactId>bedrock-network-common</artifactId>
-            <version>1.6.15-PN</version>
+            <version>${project.version}</version>
             <scope>compile</scope>
         </dependency>
         <dependency>
