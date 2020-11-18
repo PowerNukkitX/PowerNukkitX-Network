@@ -10,8 +10,12 @@ import lombok.RequiredArgsConstructor;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 import java.net.InetSocketAddress;
+import java.util.HashMap;
 import java.util.Iterator;
+import java.util.Map;
+import java.util.Objects;
 import java.util.concurrent.*;
+import java.util.function.Consumer;
 
 import static com.nukkitx.network.raknet.RakNetConstants.*;
 
@@ -20,6 +24,8 @@ public class RakNetClient extends RakNet {
     private static final InternalLogger log = InternalLoggerFactory.getInstance(RakNetClient.class);
     private final ClientDatagramHandler handler = new ClientDatagramHandler();
     private final ConcurrentMap<InetSocketAddress, PingEntry> pings = new ConcurrentHashMap<>();
+    private final Map<String, Consumer<Throwable>> exceptionHandlers = new HashMap<>();
+
     RakNetClientSession session;
     private Channel channel;
 
@@ -29,6 +35,7 @@ public class RakNetClient extends RakNet {
 
     public RakNetClient(InetSocketAddress bindAddress, EventLoopGroup eventLoopGroup) {
         super(bindAddress, eventLoopGroup);
+        exceptionHandlers.put("DEFAULT", (t) -> log.error("An exception occurred in RakNet (Client)", t));
     }
 
     @Override
@@ -45,7 +52,7 @@ public class RakNetClient extends RakNet {
         return future;
     }
 
-    public RakNetClientSession create(InetSocketAddress address) {
+    public RakNetClientSession connect(InetSocketAddress address) {
         if (!this.isRunning()) {
             throw new IllegalStateException("RakNet has not been started");
         }
@@ -53,8 +60,7 @@ public class RakNetClient extends RakNet {
             throw new IllegalStateException("Session has already been created");
         }
 
-        this.session = new RakNetClientSession(this, address, this.channel, MAXIMUM_MTU_SIZE,
-                this.protocolVersion, this.eventLoopGroup.next());
+        this.session = new RakNetClientSession(this, address, this.channel, MAXIMUM_MTU_SIZE, this.protocolVersion);
         return this.session;
     }
 
@@ -79,11 +85,29 @@ public class RakNetClient extends RakNet {
         return pongFuture;
     }
 
+    public void addExceptionHandler(String handlerId, Consumer<Throwable> handler) {
+        Objects.requireNonNull(handlerId, "handlerId is empty (client)");
+        Objects.requireNonNull(handler, "clientExceptionHandler (handler is null)");
+        this.exceptionHandlers.put(handlerId, handler);
+    }
+
+    public void clearExceptionHandlers() {
+        this.exceptionHandlers.clear();
+    }
+
+    public void removeExceptionHandler(String handlerId) {
+        this.exceptionHandlers.remove(handlerId);
+    }
+
     @Override
     protected void onTick() {
         final long curTime = System.currentTimeMillis();
         if (this.session != null) {
-            session.eventLoop.execute(() -> session.onTick(curTime));
+            if (this.session.isClosed()) {
+                this.session = null;
+            } else {
+                this.session.channel.eventLoop().execute(() -> session.onTick(curTime));
+            }
         }
         Iterator<PingEntry> iterator = this.pings.values().iterator();
         while (iterator.hasNext()) {
@@ -166,7 +190,9 @@ public class RakNetClient extends RakNet {
 
         @Override
         public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) {
-            log.error("An exception occurred in RakNet", cause);
+            for (Consumer<Throwable> handler : RakNetClient.this.exceptionHandlers.values()) {
+                handler.accept(cause);
+            }
         }
     }
 }
