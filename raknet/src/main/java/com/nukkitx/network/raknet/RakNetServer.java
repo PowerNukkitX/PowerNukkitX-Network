@@ -272,7 +272,7 @@ public class RakNetServer extends RakNet {
 
         @Override
         public void channelRead(ChannelHandlerContext ctx, Object msg) {
-            log.trace("Message received of type ", msg.getClass());
+            //log.trace("Message received of type ", msg.getClass());
             if (!(msg instanceof DatagramPacket)) {
                 return;
             }
@@ -293,7 +293,7 @@ public class RakNetServer extends RakNet {
                     return;
                 }
                 byte packetId = content.readByte();
-                log.trace("Processing packet id {} from {} at {}", packet, packet.sender(), ctx.name());
+                //log.trace("Processing packet id {} from {} at {}", packet, packet.sender(), ctx.name());
 
                 // These packets don't require a session
                 switch (packetId) {
