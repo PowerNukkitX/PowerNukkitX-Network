@@ -45,7 +45,7 @@
 
     <scm>
         <connection>scm:git:https://github.com/PowerNukkit/Bedrock-Network.git</connection>
-        <developerConnection>scm:git:ssh://github.com:PowerNukkit/Bedrock-Network.git</developerConnection>
+        <developerConnection>scm:git:ssh://github.com/PowerNukkit/Bedrock-Network.git</developerConnection>
         <url>https://github.com/PowerNukkit/Bedrock-Network</url>
     </scm>
 
@@ -79,7 +79,7 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>1.16.20</version>
+            <version>1.18.16</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
@@ -129,6 +129,10 @@
                 <executions>
                     <execution>
                         <id>attach-javadocs</id>
+                        <configuration> <!-- add this to disable checking -->
+                            <source>8</source>
+                            <doclint>none</doclint>
+                        </configuration>
                         <goals>
                             <goal>jar</goal>
                         </goals>
