@@ -27,6 +27,12 @@
             <version>${netty.version}</version>
             <scope>compile</scope>
         </dependency>
+        <dependency>
+            <groupId>net.jodah</groupId>
+            <artifactId>expiringmap</artifactId>
+            <version>0.5.9</version>
+            <scope>compile</scope>
+        </dependency>
     </dependencies>
 
 
