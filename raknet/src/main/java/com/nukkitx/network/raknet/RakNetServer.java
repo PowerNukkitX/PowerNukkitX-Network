@@ -19,12 +19,14 @@ import javax.annotation.ParametersAreNonnullByDefault;
 import java.net.Inet6Address;
 import java.net.InetAddress;
 import java.net.InetSocketAddress;
-import java.util.*;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Objects;
+import java.util.Set;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
 import java.util.concurrent.TimeUnit;
-import java.util.function.Consumer;
 
 import static com.nukkitx.network.raknet.RakNetConstants.*;
 
@@ -79,9 +81,7 @@ public class RakNetServer extends RakNet {
         ChannelFuture[] channelFutures = new ChannelFuture[bindThreads];
 
         for (int i = 0; i < bindThreads; i++) {
-            log.trace("Binding RakNet server UDP handler {} to {}", datagramHandler, bindAddress);
             channelFutures[i] = this.bootstrap.handler(this.initializer).bind(this.bindAddress);
->>>>>>>>> Temporary merge branch 2
         }
         return Bootstraps.allOf(channelFutures);
     }
@@ -179,8 +179,7 @@ public class RakNetServer extends RakNet {
 
     public boolean unblock(InetAddress address) {
         Objects.requireNonNull(address, "address");
-        log.trace("Unconnected ping received from {} at context {} but content size was too short", packet.sender(), ctx.name());
-            returnthis.blockAddresses.remove(address) != null;
+        return this.blockAddresses.remove(address) != null;
     }
 
     public boolean isBlocked(InetAddress address) {
@@ -192,15 +191,12 @@ public class RakNetServer extends RakNet {
     }
 
     public InetSocketAddress getProxiedAddress(InetSocketAddress address) {
-            log.trace("Unconnected ping received from {} at context {} but magic verification failed", packet.sender(), ctx.name());
         return this.proxiedAddresses.get(address);
     }
 
     public int getProxiedAddressSize() {
         return this.proxiedAddresses.size();
-        }
-
-        log.trace("Unconnected ping received from {} at context {}", packet.sender(), ctx.name());
+    }
 
     public int getSessionCount() {
         return this.sessionsByAddress.size();
