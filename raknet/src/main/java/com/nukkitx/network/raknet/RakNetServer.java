@@ -81,6 +81,7 @@ public class RakNetServer extends RakNet {
         for (int i = 0; i < bindThreads; i++) {
             log.trace("Binding RakNet server UDP handler {} to {}", datagramHandler, bindAddress);
             channelFutures[i] = this.bootstrap.handler(this.initializer).bind(this.bindAddress);
+>>>>>>>>> Temporary merge branch 2
         }
         return Bootstraps.allOf(channelFutures);
     }
@@ -130,7 +131,7 @@ public class RakNetServer extends RakNet {
                 + UDP_HEADER_SIZE; // 1 (Packet ID), 16 (Magic), 1 (Protocol Version), 20/40 (IP Header)
 
         RakNetServerSession session = this.sessionsByAddress.get(packet.sender());
-
+        
         log.trace("RakNet Server open connection request received from {} in context {}. MTU: {}, Protocol: {}", packet.sender(), ctx, mtu, protocolVersion);
         final InetSocketAddress clientAddress;
         final InetSocketAddress proxiedAddress;
