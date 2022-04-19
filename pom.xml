@@ -7,7 +7,7 @@
     <groupId>org.powernukkit.bedrock.network</groupId>
     <artifactId>bedrock-network-parent</artifactId>
     <packaging>pom</packaging>
-    <version>1.6.28-PN-SNAPSHOT</version>
+    <version>1.6.28-PN.1</version>
     <inceptionYear>2018</inceptionYear>
     <url>https://github.com/PowerNukkit/Bedrock-Network</url>
 
@@ -28,6 +28,7 @@
         <maven.build.timestamp.format>HHmm-ddMMyyyy</maven.build.timestamp.format>
         <netty.version>4.1.70.Final</netty.version>
         <junit.version>5.4.2</junit.version>
+        <skipGpg>false</skipGpg>
     </properties>
 
     <licenses>
@@ -53,7 +54,7 @@
         <repository>
             <id>powernukkit-releases</id>
             <name>powernukkit-releases</name>
-            <url>https://api.bintray.com/maven/powernukkit/powernukkit/bedrock-network</url>
+            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
         </repository>
         <snapshotRepository>
             <id>powernukkit-snapshots</id>
@@ -173,6 +174,23 @@
                         </configuration>
                     </execution>
                 </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-gpg-plugin</artifactId>
+                <version>1.6</version>
+                <executions>
+                    <execution>
+                        <id>sign-artifacts</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>sign</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <skip>${skipGpg}</skip>
+                </configuration>
             </plugin>
         </plugins>
 

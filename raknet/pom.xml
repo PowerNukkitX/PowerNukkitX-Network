@@ -5,7 +5,7 @@
     <parent>
         <artifactId>bedrock-network-parent</artifactId>
         <groupId>org.powernukkit.bedrock.network</groupId>
-        <version>1.6.28-PN-SNAPSHOT</version>
+        <version>1.6.28-PN.1</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
@@ -51,7 +51,7 @@
         <repository>
             <id>powernukkit-releases</id>
             <name>powernukkit-releases</name>
-            <url>https://api.bintray.com/maven/powernukkit/powernukkit/bedrock-network</url>
+            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
         </repository>
     </distributionManagement>
 
