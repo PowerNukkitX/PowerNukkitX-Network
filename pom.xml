@@ -7,7 +7,7 @@
     <groupId>org.powernukkit.bedrock.network</groupId>
     <artifactId>bedrock-network-parent</artifactId>
     <packaging>pom</packaging>
-    <version>1.6.28-PN.2</version>
+    <version>1.6.28-PN.3</version>
     <inceptionYear>2018</inceptionYear>
     <url>https://github.com/PowerNukkit/Bedrock-Network</url>
 
@@ -26,8 +26,8 @@
         <maven.compiler.target>1.8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.build.timestamp.format>HHmm-ddMMyyyy</maven.build.timestamp.format>
-        <netty.version>4.1.70.Final</netty.version>
-        <junit.version>5.4.2</junit.version>
+        <netty.version>4.1.75.Final</netty.version>
+        <junit.version>5.8.2</junit.version>
         <skipGpg>false</skipGpg>
     </properties>
 
@@ -80,7 +80,7 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>1.18.16</version>
+            <version>1.18.22</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
