@@ -7,7 +7,7 @@
     <groupId>org.powernukkit.bedrock.network</groupId>
     <artifactId>bedrock-network-parent</artifactId>
     <packaging>pom</packaging>
-    <version>1.6.28-PN.1</version>
+    <version>1.6.28-PN.2</version>
     <inceptionYear>2018</inceptionYear>
     <url>https://github.com/PowerNukkit/Bedrock-Network</url>
 
