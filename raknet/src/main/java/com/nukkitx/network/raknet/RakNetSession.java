@@ -552,7 +552,7 @@ public abstract class RakNetSession implements SessionConnection<ByteBuf> {
             }
         }
 
-        if (resendCount > MAXIMUM_STALE_DATAGRAMS) {
+        if (maximumStaleDatagrams >= 0 && resendCount > maximumStaleDatagrams) {
             this.close(DisconnectReason.TIMED_OUT);
             if (log.isDebugEnabled()) {
                 log.debug("Too many Stale datagrams for {}. Disconnected", this.address);
