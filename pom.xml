@@ -9,7 +9,7 @@
     <packaging>pom</packaging>
     <version>1.6.28-PNX.4</version>
     <inceptionYear>2018</inceptionYear>
-    <url>https://github.com/PowerNukkit/Bedrock-Network</url>
+    <url>https://github.com/PowerNukkitX/PowerNukkitX-Network</url>
 
     <name>Bedrock Edition Network (Parent)</name>
     <description>Applies common configuration to the Bedrock Network modules</description>
