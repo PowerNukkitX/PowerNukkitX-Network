@@ -5,7 +5,7 @@
     <parent>
         <artifactId>bedrock-network-parent</artifactId>
         <groupId>org.powernukkit.bedrock.network</groupId>
-        <version>1.6.28-PN.3</version>
+        <version>1.6.28-PNX.4</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
