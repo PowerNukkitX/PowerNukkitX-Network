@@ -32,13 +32,13 @@
 
     <issueManagement>
         <system>GitHub</system>
-        <url>https://github.com/PowerNukkit/Bedrock-Network/issues</url>
+        <url>https://github.com/PowerNukkitX/PowerNukkitX-Network/issues</url>
     </issueManagement>
 
     <scm>
-        <connection>scm:git:https://github.com/PowerNukkit/Bedrock-Network.git</connection>
-        <developerConnection>scm:git:ssh://github.com:PowerNukkit/Bedrock-Network.git</developerConnection>
-        <url>https://github.com/PowerNukkit/Bedrock-Network</url>
+        <connection>scm:git:https://github.com/PowerNukkitX/PowerNukkitX-Network.git</connection>
+        <developerConnection>scm:git:ssh://github.com:PowerNukkitX/PowerNukkitX-Network.git</developerConnection>
+        <url>https://github.com/PowerNukkitX/PowerNukkitX-Network</url>
     </scm>
 
     <distributionManagement>
@@ -50,6 +50,11 @@
     </distributionManagement>
 
     <developers>
+        <developer>
+            <id>PowerNukkitX</id>
+            <organization>PowerNukkitX</organization>
+            <organizationUrl>https://powernukkitx.cn</organizationUrl>
+        </developer>
         <developer>
             <id>PowerNukkit</id>
             <organization>PowerNukkit</organization>
