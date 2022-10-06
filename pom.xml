@@ -7,7 +7,7 @@
     <groupId>org.powernukkit.bedrock.network</groupId>
     <artifactId>bedrock-network-parent</artifactId>
     <packaging>pom</packaging>
-    <version>1.6.28-PNX.4</version>
+    <version>1.6.28-PNX.5</version>
     <inceptionYear>2018</inceptionYear>
     <url>https://github.com/PowerNukkitX/PowerNukkitX-Network</url>
 
@@ -26,7 +26,7 @@
         <maven.compiler.target>1.8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.build.timestamp.format>HHmm-ddMMyyyy</maven.build.timestamp.format>
-        <netty.version>4.1.75.Final</netty.version>
+        <netty.version>4.1.77.Final</netty.version>
         <junit.version>5.8.2</junit.version>
         <skipGpg>false</skipGpg>
     </properties>

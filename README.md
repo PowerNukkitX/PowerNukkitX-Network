@@ -9,35 +9,42 @@ Network components used within NukkitX.
 ##### Repository:
 
 ```xml
-    <repositories>
-        <repository>
-            <id>nukkitx-repo-snapshot</id>
-            <url>https://repo.nukkitx.com/snapshot/</url>
-        </repository>
-    </repositories>
+
+<repositories>
+    <repository>
+        <id>maven-powernukkitx-cn</id>
+        <url>https://maven.powernukkitx.cn/repository/maven-public/</url>
+        <releases>
+            <enabled>true</enabled>
+        </releases>
+        <snapshots>
+            <enabled>true</enabled>
+        </snapshots>
+    </repository>
+</repositories>
 ```
 
 ##### Dependencies:
 
 ```xml
     <dependencies>
-        <dependency>
-            <groupId>com.nukkitx.network</groupId>
-            <artifactId>query</artifactId>
-            <version>1.6.28-SNAPSHOT</version>
-            <scope>compile</scope>
+    <dependency>
+        <groupId>org.powernukkit.bedrock.network</groupId>
+        <artifactId>query</artifactId>
+        <version>1.6.28-PNX.5</version>
+        <scope>compile</scope>
         </dependency>
-        <dependency>
-            <groupId>com.nukkitx.network</groupId>
-            <artifactId>raknet</artifactId>
-            <version>1.6.28-SNAPSHOT</version>
-            <scope>compile</scope>
+    <dependency>
+        <groupId>org.powernukkit.bedrock.network</groupId>
+        <artifactId>raknet</artifactId>
+        <version>1.6.28-PNX.5</version>
+        <scope>compile</scope>
         </dependency>
-        <dependency>
-            <groupId>com.nukkitx.network</groupId>
-            <artifactId>rcon</artifactId>
-            <version>1.6.28-SNAPSHOT</version>
-            <scope>compile</scope>
+    <dependency>
+        <groupId>org.powernukkit.bedrock.network</groupId>
+        <artifactId>rcon</artifactId>
+        <version>1.6.28-PNX.5</version>
+        <scope>compile</scope>
         </dependency>
     </dependencies>
 ```
