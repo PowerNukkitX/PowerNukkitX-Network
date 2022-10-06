@@ -9,19 +9,18 @@ Network components used within NukkitX.
 ##### Repository:
 
 ```xml
-
-<repositories>
-    <repository>
-        <id>maven-powernukkitx-cn</id>
-        <url>https://maven.powernukkitx.cn/repository/maven-public/</url>
-        <releases>
-            <enabled>true</enabled>
-        </releases>
-        <snapshots>
-            <enabled>true</enabled>
-        </snapshots>
-    </repository>
-</repositories>
+    <repositories>
+        <repository>
+            <id>maven-powernukkitx-cn</id>
+            <url>https://maven.powernukkitx.cn/repository/maven-public/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
 ```
 
 ##### Dependencies:
