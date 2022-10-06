@@ -74,6 +74,7 @@ public abstract class RakNetSession implements SessionConnection<ByteBuf> {
     private int unackedBytes;
     private long lastMinWeight;
     private int sessionTimeout = SESSION_TIMEOUT_MS;
+    private int maximumStaleDatagrams = MAXIMUM_STALE_DATAGRAMS;
 
     RakNetSession(InetSocketAddress address, Channel channel, EventLoop eventLoop, int mtu, int protocolVersion) {
         this.address = address;
@@ -551,7 +552,7 @@ public abstract class RakNetSession implements SessionConnection<ByteBuf> {
             }
         }
 
-        if (resendCount > MAXIMUM_STALE_DATAGRAMS) {
+        if (maximumStaleDatagrams >= 0 && resendCount > maximumStaleDatagrams) {
             this.close(DisconnectReason.TIMED_OUT);
             if (log.isDebugEnabled()) {
                 log.debug("Too many Stale datagrams for {}. Disconnected", this.address);
@@ -845,6 +846,14 @@ public abstract class RakNetSession implements SessionConnection<ByteBuf> {
     /** timeout in ms ( 1 second = 1000 ) **/
     public void setSessionTimeout(int timeout){
         this.sessionTimeout = timeout;
+    }
+
+    public int getMaximumStaleDatagrams() {
+        return maximumStaleDatagrams;
+    }
+
+    public void setMaximumStaleDatagrams(int maximumStaleDatagrams) {
+        this.maximumStaleDatagrams = maximumStaleDatagrams;
     }
 
     /*
