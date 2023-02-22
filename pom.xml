@@ -4,10 +4,10 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>org.powernukkit.bedrock.network</groupId>
+    <groupId>cn.powernukkitx</groupId>
     <artifactId>bedrock-network-parent</artifactId>
     <packaging>pom</packaging>
-    <version>1.6.28-PNX.5</version>
+    <version>1.6.28-PNX.6</version>
     <inceptionYear>2018</inceptionYear>
     <url>https://github.com/PowerNukkitX/PowerNukkitX-Network</url>
 

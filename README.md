@@ -9,16 +9,11 @@ Network components used within NukkitX.
 ##### Repository:
 
 ```xml
+
 <repositories>
     <repository>
-        <id>maven-powernukkitx-cn</id>
-        <url>https://maven.powernukkitx.cn/repository/maven-public/</url>
-        <releases>
-            <enabled>true</enabled>
-        </releases>
-        <snapshots>
-            <enabled>true</enabled>
-        </snapshots>
+        <id>jitpack.io</id>
+        <url>https://jitpack.io</url>
     </repository>
 </repositories>
 ```
@@ -28,21 +23,21 @@ Network components used within NukkitX.
 ```xml
 <dependencies>
     <dependency>
-        <groupId>org.powernukkit.bedrock.network</groupId>
+        <groupId>cn.powernukkitx</groupId>
         <artifactId>query</artifactId>
-        <version>1.6.28-PNX.5</version>
+        <version>1.6.28-PNX.6</version>
         <scope>compile</scope>
         </dependency>
     <dependency>
-        <groupId>org.powernukkit.bedrock.network</groupId>
+        <groupId>cn.powernukkitx</groupId>
         <artifactId>raknet</artifactId>
-        <version>1.6.28-PNX.5</version>
+        <version>1.6.28-PNX.6</version>
         <scope>compile</scope>
         </dependency>
     <dependency>
-        <groupId>org.powernukkit.bedrock.network</groupId>
+        <groupId>cn.powernukkitx</groupId>
         <artifactId>rcon</artifactId>
-        <version>1.6.28-PNX.5</version>
+        <version>1.6.28-PNX.6</version>
         <scope>compile</scope>
     </dependency>
 </dependencies>
